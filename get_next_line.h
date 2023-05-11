@@ -13,9 +13,27 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
+# define BUFFER_SIZE 1 
 
 #endif
 
+char    *get_next_line(int fd);
+char    *read_add_stash(int fd, char *stash);
+char    *stash_to_line(char *stash);
+int     find_n(char *stash);
+char    *free_stash(char *stash);
+size_t  ft_strlen(const char *s);
+char    *ft_strjoin(char const *s1, char const *s2);
+int     after_n(char *stash);
+char    *ft_strdup(const char *s);
+char    *ft_strchr(const char *s, int c);
 
+
+#endif
