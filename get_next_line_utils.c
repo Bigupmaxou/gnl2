@@ -6,7 +6,7 @@
 /*   By: maxipeti <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 09:07:48 by maxipeti          #+#    #+#             */
-/*   Updated: 2023/04/28 09:25:46 by maxipeti         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:55:46 by maxipeti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	find_n(char *stash)
 	int	i;
 
 	i = 0;
-	while(stash[i] != '\n' && stash[i] != '\0')
+	while (stash[i] != '\n' && stash[i] != '\0')
 	{
 		i++;
 	}
-	return(i);
+	return (i);
 }
 
 char	*ft_strdup(const char *s)
@@ -83,26 +83,26 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int     after_n(char *stash)
+int	after_n(char *stash)
 {
-        int     i;
-        int     j;
-   
-        i = 0;
-        j = 0;
-	if(!stash)
-		return(0);
-        while(stash[i] != '\n' && stash[i])
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (!stash)
+		return (0);
+	while (stash[i] != '\n' && stash[i])
 	{
 		i++;
 	}
 	if (stash[i] == '\0')
-		return(0);	
-	while(stash[i + j] != '\0')
+		return (0);
+	while (stash[i + j] != '\0')
 	{
 		j++;
 	}
-	return(j);
+	return (j);
 }
 
 int main(void)
@@ -111,12 +111,13 @@ int main(void)
     char *line;
 
     fd = open("maxime.txt", O_RDONLY);
-    while ((line = get_next_line(fd)) != NULL)
+	line = get_next_line(fd);
+    while (line != NULL)
     {
-        printf("%s\n", line);
+        printf("%s", line);
         free(line);
+	line = get_next_line(fd);
     }
-
     close(fd);
     return 0;
 }
